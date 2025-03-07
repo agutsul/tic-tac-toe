@@ -19,6 +19,8 @@ curl -X POST -H "Content-Type: application/json" -d '{"playerName1":"testPlayer1
 
 
 // get game info by uuid/sessionId
+
+
 curl -X GET http://localhost:8080/games/5f8b5d5b-fbd6-4fed-8f85-99e4b4ad2ca9
 
 
