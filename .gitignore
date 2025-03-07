@@ -1,3 +1,10 @@
+.settings
+.project
+.classpath
+.pmd
+.factorypath
+/target/
+
 # Compiled class file
 *.class
 
