@@ -1,5 +1,6 @@
 package com.agutsul.tictactoe.service;
 
+import static org.apache.commons.lang3.StringUtils.*;
 import org.hibernate.query.sqm.UnknownEntityException;
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.*;
@@ -114,12 +115,18 @@ public class GameServiceImpl implements GameService {
                 game.setWinner(player);
                 game.setStatus(GameStatus.FINISHED);
             } else {
-                game.setStatus(GameStatus.RUNNING);
-                // switch active player
-                game.setActivePlayer(Objects.equals(game.getPlayer1(), player) 
-                        ? game.getPlayer2()
-                        : game.getPlayer1()
-                );
+                
+                // check if board contains any more empty positions
+                if (containsWhitespace(board)) {
+                    game.setStatus(GameStatus.RUNNING);
+                    // switch active player
+                    game.setActivePlayer(Objects.equals(game.getPlayer1(), player) 
+                            ? game.getPlayer2()
+                            : game.getPlayer1()
+                    );
+                } else {
+                    game.setStatus(GameStatus.FINISHED);
+                }
             }
             
             // update game
