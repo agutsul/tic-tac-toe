@@ -14,6 +14,7 @@ public class GameModel {
     private String board;
     private Status status;
     private String activePlayer;
+    private String winner;
 
     public String getSessionId() {
         return sessionId;
@@ -38,5 +39,11 @@ public class GameModel {
     }
     public void setStatus(Status status) {
         this.status = status;
+    }
+    public String getWinner() {
+        return winner;
+    }
+    public void setWinner(String winner) {
+        this.winner = winner;
     }
 }

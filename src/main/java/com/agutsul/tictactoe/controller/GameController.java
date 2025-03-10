@@ -76,6 +76,10 @@ class GameController {
         gameModel.setBoard(game.getBoard());
         gameModel.setStatus(statusOf(game));
         gameModel.setActivePlayer(game.getActivePlayer().getName());
+        
+        if (game.getWinner() != null) {
+            gameModel.setWinner(game.getWinner().getName());
+        }
 
         return gameModel;
     }
